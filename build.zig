@@ -12,7 +12,7 @@ pub fn build(b: *std.build.Builder) void {
 
         const exe = microzig.addEmbeddedExecutable(b, .{
             .name = @field(boards, decl.name).name ++ ".minimal",
-            .source = .{
+            .source_file = .{
                 .path = "test/programs/minimal.zig",
             },
             .backing = .{ .board = @field(boards, decl.name) },
@@ -27,7 +27,7 @@ pub fn build(b: *std.build.Builder) void {
 
         const exe = microzig.addEmbeddedExecutable(b, .{
             .name = @field(chips, decl.name).name ++ ".minimal",
-            .srouce = .{
+            .source_file = .{
                 .path = "test/programs/minimal.zig",
             },
             .backing = .{ .chip = @field(chips, decl.name) },
